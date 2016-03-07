@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# Mail Sender CLI helpers
+#
+set -u
+set -e
+# by default runs settings/dev.settings.json
+# customize by creating settings/settings.json
+if [[ "$@" == "reset" ]]; then
+  chmod +x bin/reset
+  bin/reset
+elif [[ "$@" == "install" ]]; then
+  # copy msender so that you don't need ./
+  type sudo >/dev/null 2>&1
+  sudo cp msender /usr/local/bin/msender && sudo chmod + /usr/local/bin/msender
+  chmod +x bin/*
+  bin/install
+else
+  chmod +x bin/run
+  bin/run "$@"
+fi
+exit

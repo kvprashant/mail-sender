@@ -1,0 +1,7 @@
+{
+  "ROOT_URL": "",
+  "MONGO_URL": "",
+  "MAIL_URL": "",
+  "isDebug": "info",
+  "public": {}
+}
