@@ -2,6 +2,13 @@
   "ROOT_URL": "",
   "MONGO_URL": "",
   "MAIL_URL": "",
+  "SENDER_ENV": {
+    "defaultName": "",
+    "url": "http://mail.example.com",
+    "username": "example",
+    "key": "",
+    "from": "Indexcs"
+  },
   "isDebug": "info",
   "public": {}
 }

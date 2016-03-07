@@ -7,22 +7,20 @@ function getEmails() {
 
 function getHtml(name, email, _id) {
   if(name=="")
-    name="there";
-  //TODO load from settings
+    name=Meteor.settings.SENDER_ENV.defaultName;
   var html = SSR.render('emailTemplate', 
     { name: name, 
       email: email,
-      url: "",
+      url: Meteor.settings.SENDER_ENV.url,
       _id: _id
     });
   return html;
 }
 
 Meteor.startup(function () {
-  //TODO load from settings
   Meteor.Mandrill.config({
-    username: "",
-    key: ""
+    username: Meteor.settings.SENDER_ENV.username,
+    key: Meteor.settings.SENDER_ENV.key
   });
 
   Meteor.methods({
@@ -47,8 +45,7 @@ Meteor.startup(function () {
     sendEmail: function (to, from, cc, subject, text, html) {
       check(to, String);
       check(cc, [String]);
-      //TODO load from settings
-      var from = ""
+      var from = Meteor.settings.SENDER_ENV.from
 
       // Let other method calls from the same client start running,
       // without waiting for the email sending to complete.
