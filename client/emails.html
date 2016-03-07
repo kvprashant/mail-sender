@@ -1,0 +1,37 @@
+<head>
+  <title>Devthon Mailer Campaigns</title>
+</head>
+
+<body>
+  <div class="small-12 columns">
+    
+  </div>
+  <div class="large-12 columns"> 
+    <h1>Devthon: Campaign mail sender</h1>
+    {{> mailer}}
+  </div>
+</body>
+
+<template name="mailer">
+  <div class="large-6 columns">  
+    <div class="large-9 columns">
+      <label>Subject
+        <input type="text" placeholder="A short and sweet subject for the email" />
+      </label>
+    </div>
+    <div class="large-9 columns">
+      <label>List of email addresses
+        <textarea rows="10" placeholder="Enter email addresses, one in new line..."></textarea>
+      </label>
+      <a href="#" class="button tiny seg">Send email to segment</a>
+    </div>
+
+    <div class="large-12 columns">
+      <hr/>
+    </div>
+
+    <div class="large-12 columns">
+      <a href="#" class="button tiny subs">Send email to subscribers</a>
+    </div>
+  </div>
+</template>

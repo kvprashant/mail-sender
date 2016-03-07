@@ -1,0 +1,21 @@
+mongo
+
+use mailersdb
+db.auth("mailers", "U#6,6M94~Q1wX")
+
+emails=[]
+db.emails.find().forEach(function(row){emails.push(row);db.emails.remove({_id:row._id});})
+
+emails.forEach(function(row){db.emails.insert({"_id":row._id.str,"name":row.name,"email_address":row.email_address,"first_name":row.first_name,"last_name":row.last_name,"EMAIL_TYPE":row.EMAIL_TYPE,"MEMBER_RATING":row.MEMBER_RATING,"OPTIN_TIME":row.OPTIN_TIME,"OPTIN_IP":row.OPTIN_IP,"CONFIRM_TIME":row.CONFIRM_TIME,"CONFIRM_IP":row.CONFIRM_IP,"LATITUDE":row.LATITUDE,"LONGITUDE":row.LONGITUDE,"GMTOFF":row.GMTOFF,"DSTOFF":row.DSTOFF,"TIMEZONE":row.TIMEZONE,"CC":row.CC,"REGION":row.REGION,"LAST_CHANGED":row.LAST_CHANGED,"LEID":row.LEID,"EUID":row.EUID,"NOTES":row.NOTES});})
+db.emails.count()
+
+db.emails.find({},{_id:1}).forEach(function(row){print(row._id)})
+
+
+db.emails.insert({_id:"55781efa5055dde640d0e54b","name":"Surya","email_address":"surya@hyderabad.bits-pilani.ac.in","first_name":"Surya","last_name":"Rao","EMAIL_TYPE":"html","MEMBER_RATING":4,"OPTIN_TIME":"","OPTIN_IP":"","CONFIRM_TIME":new Date(),"CONFIRM_IP":"","LATITUDE":"","LONGITUDE":"","GMTOFF":"","DSTOFF":"","TIMEZONE":"","CC":"","REGION":"","LAST_CHANGED":new Date(),"NOTES":""})
+
+db.emails.insert({_id:"55781efb5055dde640d0e54c","name":"Vipin","email_address":"vipin@lvpei.org","first_name":"AnthonyVipin","last_name":"Das","EMAIL_TYPE":"html","MEMBER_RATING":4,"OPTIN_TIME":"","OPTIN_IP":"","CONFIRM_TIME":new Date(),"CONFIRM_IP":"","LATITUDE":"","LONGITUDE":"","GMTOFF":"","DSTOFF":"","TIMEZONE":"","CC":"","REGION":"","LAST_CHANGED":new Date(),"NOTES":""})
+
+db.emails.insert({_id:"55781efb5055dde640d0e54d","name":"Vipin","email_address":"dr_dubbleohsix@yahoo.co.in","first_name":"AnthonyVipin","last_name":"Das","EMAIL_TYPE":"html","MEMBER_RATING":4,"OPTIN_TIME":"","OPTIN_IP":"","CONFIRM_TIME":new Date(),"CONFIRM_IP":"","LATITUDE":"","LONGITUDE":"","GMTOFF":"","DSTOFF":"","TIMEZONE":"","CC":"","REGION":"","LAST_CHANGED":new Date(),"NOTES":""})
+
+db.emails.insert({_id:"55781f774ee66636ed707727","name":"Prashant","email_address":"kv.prshnt@gmail.com","first_name":"Prashant","last_name":"Venkatasubban","EMAIL_TYPE":"html","MEMBER_RATING":4,"OPTIN_TIME":"","OPTIN_IP":"","CONFIRM_TIME":new Date(),"CONFIRM_IP":"","LATITUDE":"","LONGITUDE":"","GMTOFF":"","DSTOFF":"","TIMEZONE":"","CC":"","REGION":"","LAST_CHANGED":new Date(),"NOTES":""})
