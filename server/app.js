@@ -18,7 +18,7 @@ function getHtml(name, email, _id) {
 }
 
 Meteor.startup(function () {
-  Meteor.Mandrill.config({
+  Mandrill.config({
     username: Meteor.settings.SENDER_ENV.username,
     key: Meteor.settings.SENDER_ENV.key
   });
